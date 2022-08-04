@@ -4,3 +4,28 @@
     email,
     password: hash,
 }
+
+// Blog
+{
+    author,
+    title,
+    subTitle,
+    body,
+    date,
+    tags,
+    numLikes,
+    numComments
+}
+
+// Comments
+{
+    blogId,
+    userId,
+    postTime,
+    text,
+    author: {
+        userId,
+        name,
+    },
+    likes
+}
