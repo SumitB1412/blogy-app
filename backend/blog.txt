@@ -1,0 +1,6 @@
+// User schema
+{
+    name,
+    email,
+    password: hash,
+}
