@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const UserModel = require("../models/User.model");
 const sha256 = require("sha256");
+const jwt = require("jsonwebtoken");
 
 const authRouter = Router();
 
@@ -16,7 +17,7 @@ authRouter.post("/signup", async (req, res) => {
     res.send(user);
 })
 
-authRouter.post("/login",async (req,res)=>{
+authRouter.post("/login", async (req, res) => {
     // 
 })
 
