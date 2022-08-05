@@ -29,4 +29,21 @@ authRouter.post("/login", async (req, res) => {
 })
 
 
+// app.get("/profile/:id", async (req, res) => {
+//     const { id } = req.params;
+//     const token = req.headers["authorization"].split(' ')[1];
+//     try {
+//         const verification = jwt.verify(token, "SECRET");
+//         if (verification) {
+//             const user = await UserModel.findOne({ _id: id })
+//             res.send({ message: "Profile page", ...user })
+//         }
+//         else {
+//             res.send("Unauthorized user");
+//         }
+//     }
+//     catch (err) { res.send(err) }
+// })
+
+
 module.exports = authRouter;
