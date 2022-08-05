@@ -18,7 +18,14 @@ authRouter.post("/signup", async (req, res) => {
 })
 
 authRouter.post("/login", async (req, res) => {
-    // 
+    const { email, password } = req.body;
+    const hash = sha256(password);
+    const user = await UserModel.findOne({ email, password: hash });
+    if (!user) {
+        return res.status(401).send("Wrong credentials");
+    }
+    const token = jwt.sign({ name: user.name, email: email.username, id: user._id }, "SOMEPASSWORD")
+    res.send({ message: "Login Success", token: token });
 })
 
 
