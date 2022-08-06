@@ -2,6 +2,7 @@ const { Router } = require("express");
 const UserModel = require("../models/User.model");
 const sha256 = require("sha256");
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 
 const authRouter = Router();
 
@@ -24,26 +25,8 @@ authRouter.post("/login", async (req, res) => {
     if (!user) {
         return res.status(401).send("Wrong credentials");
     }
-    const token = jwt.sign({ name: user.name, email: email.username, id: user._id }, "SOMEPASSWORD")
+    const token = jwt.sign({ name: user.name, email: email.username, id: user._id }, process.env.SECRET);
     res.send({ message: "Login Success", token: token });
 })
-
-
-// app.get("/profile/:id", async (req, res) => {
-//     const { id } = req.params;
-//     const token = req.headers["authorization"].split(' ')[1];
-//     try {
-//         const verification = jwt.verify(token, "SECRET");
-//         if (verification) {
-//             const user = await UserModel.findOne({ _id: id })
-//             res.send({ message: "Profile page", ...user })
-//         }
-//         else {
-//             res.send("Unauthorized user");
-//         }
-//     }
-//     catch (err) { res.send(err) }
-// })
-
 
 module.exports = authRouter;
