@@ -7,8 +7,6 @@ const BlogSchema = mongoose.Schema({
     body: { type: String, required: true },
     date: { type: String, required: true },
     tags: { type: Array, required: true },
-    numLikes: { type: Number, default: 0 },
-    numComments: { type: Array, default: 0 }
 })
 
 const BlogModel = mongoose.model("blog", BlogSchema);

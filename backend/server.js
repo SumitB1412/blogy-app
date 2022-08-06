@@ -3,6 +3,7 @@ const cors = require("cors");
 const connection = require("./db");
 const authRouter = require("./routes/authRouter");
 const blogRouter = require("./routes/blogRouter");
+const commentRouter = require("./routes/commentRouter");
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/auth", authRouter);
 app.use("/blogs", blogRouter);
+app.use("/blogs", commentRouter);
 
 app.get("/", (req, res) => {
     res.send("Homepage");

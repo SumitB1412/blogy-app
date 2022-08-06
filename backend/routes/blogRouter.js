@@ -22,30 +22,25 @@ blogRouter.post("/user/:userId/new-blog", async (req, res) => {
         const verification = jwt.verify(token, process.env.SECRET);
         if (verification) {
             const { title, subTitle, body, date, tags } = req.body;
-            const blog = await new BlogModel({ title, userId, subTitle, body, date, tags });
+            const blog = await new BlogModel({ title, authorId: userId, subTitle, body, date, tags });
             await blog.save();
             res.send("Blogged saved successfully");
         }
         else {
             res.status(403).send("User Unauthorized");
         }
-    } catch (err) { res.status(403).send("User Unauthorized"); }
+    } catch (err) { res.send(err); }
 })
 
 module.exports = blogRouter;
 
-// app.get("/profile/:id", async (req, res) => {
-//     const { id } = req.params;
-//     const token = req.headers["authorization"].split(' ')[1];
-//     try {
-//         const verification = jwt.verify(token, "SECRET");
-//         if (verification) {
-//             const user = await UserModel.findOne({ _id: id })
-//             res.send({ message: "Profile page", ...user })
-//         }
-//         else {
-//             res.send("Unauthorized user");
-//         }
-//     }
-//     catch (err) { res.send(err) }
-// })
+// {
+//     "title": "Demo",
+//     "subTitle": "Practice",
+//     "body": "something.....",
+//     "date": "today",
+//     "tags": [
+//       "tech",
+//       "new"
+//     ]
+//   }
