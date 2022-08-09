@@ -40,3 +40,8 @@
 .navbar>div:nth-child(2)>p:hover{
     border-bottom: 1px solid rgb(121,124,124);
 }
+
+/* last child */
+.navbar>div:nth-child(3){
+    flex-direction: row-reverse;
+}
