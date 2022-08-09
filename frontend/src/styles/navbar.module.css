@@ -1,0 +1,42 @@
+/* styling the navbar */
+.navbar {
+  border: 1px solid black;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar>div{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+}
+
+.navbar img{
+    width: 25%;
+    margin-left: 5%;
+}
+.navbar img:hover{
+    cursor: pointer;
+    transition: 1s;
+    transform: scale(1.1)  ;
+}
+
+/* second child */
+.navbar>div:nth-child(2){
+    justify-content: space-evenly;
+}
+.navbar>div:nth-child(2)>p{
+    font-size: 17px;
+    cursor: pointer;
+    color: rgb(121,124,124);
+    font-weight: 500;
+    /* border: 1px solid blue; */
+}
+.navbar>div:nth-child(2)>p:hover{
+    border-bottom: 1px solid rgb(121,124,124);
+}
