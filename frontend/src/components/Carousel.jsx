@@ -1,23 +1,36 @@
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap/Carousel";
 
-function CarouselFadeExample() {
+function Carousels() {
   return (
-    <Carousel fade>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
-          alt="First slide"
-        />
-        <Carousel.Caption>
+    <Carousel variant="dark">
+      <Carousel.Item
+        style={{
+          display: "flex",
+          border: "1px solid",
+          justifyContent: "space-around",
+        }}
+      >
+        <div>
+          <h3>Some text</h3>
+        </div>
+        <div>
+          <img
+            height="300px"
+            className="d-block w-100"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWxBo00SBWf1a7EmTHrxbaOwm6wEMIHuMi8g&usqp=CAU"
+            alt="First slide"
+          />
+        </div>
+        {/* <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
+        </Carousel.Caption> */}
       </Carousel.Item>
       <Carousel.Item>
         <img
+          height="300px"
           className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVeU1ZmusWbP2NiJH8Al-zUCjwxzK8b-OH6Q&usqp=CAU"
           alt="Second slide"
         />
 
@@ -29,7 +42,8 @@ function CarouselFadeExample() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
+          height="300px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMLB4LgJLIG6BuyMNB19sQE1PTr0gGJXN3ig&usqp=CAU"
           alt="Third slide"
         />
 
@@ -44,4 +58,4 @@ function CarouselFadeExample() {
   );
 }
 
-export default CarouselFadeExample;
+export default Carousels;
