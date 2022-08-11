@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
     res.send("Homepage");
 })
 
-app.listen(8080, async () => {
+app.listen(8000, async () => {
     try {
         await connection;
         console.log("connected to db");
@@ -27,5 +27,5 @@ app.listen(8080, async () => {
     catch (err) {
         console.log("error while connecting to db");
     }
-    console.log("port running on http://localhost:8080");
+    console.log("port running on http://localhost:8000");
 })
