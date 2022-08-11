@@ -1,6 +1,20 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
 function Carousels() {
+  const [data, setData] = useState([]);
+  const getData = () => {
+    fetch("http://localhost:8000/blogs/user/62f5456ffffdd08604527c7e")
+      .then((res) => res.json())
+      .then((res) => setData(res))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <Carousel variant="dark">
       <Carousel.Item
@@ -21,10 +35,6 @@ function Carousels() {
             alt="First slide"
           />
         </div>
-        {/* <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption> */}
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -33,11 +43,6 @@ function Carousels() {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVeU1ZmusWbP2NiJH8Al-zUCjwxzK8b-OH6Q&usqp=CAU"
           alt="Second slide"
         />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
@@ -46,13 +51,6 @@ function Carousels() {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMLB4LgJLIG6BuyMNB19sQE1PTr0gGJXN3ig&usqp=CAU"
           alt="Third slide"
         />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );
