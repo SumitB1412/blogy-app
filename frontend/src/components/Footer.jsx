@@ -2,9 +2,18 @@ import React from "react";
 import styles from "../styles/footer.module.css";
 import { FaHeart } from "react-icons/fa";
 import { SiNetlify } from "react-icons/si";
-import { AiFillLinkedin,AiFillGithub } from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 export const Footer = () => {
+  const linkedin = () => {
+    window.open("https://www.linkedin.com/in/sumit-beniwal-987595232/", "_blank");
+  };
+  const github = () => {
+    window.open("https://github.com/SumitB1412", "_blank");
+  };
+  const portfolio = () => {
+    window.open("https://sumitbeniwal.vercel.app/", "_blank");
+  };
   return (
     <div className={styles.footer}>
       <div className={styles.child1}>
@@ -15,20 +24,15 @@ export const Footer = () => {
           />
         </div>
         <div>
-          <p>Made with <FaHeart color="red" /> by Sumit Beniwal</p>
+          <p>
+            Made with <FaHeart color="red" /> by Sumit Beniwal
+          </p>
         </div>
         <div>
-            <AiFillLinkedin />
-            <AiFillGithub/>
-            <SiNetlify />
+          <AiFillLinkedin cursor="pointer" onClick={linkedin} />
+          <AiFillGithub cursor="pointer" onClick={github} />
+          <SiNetlify cursor="pointer" onClick={portfolio} />
         </div>
-      </div>
-      <div className={styles.child2}>
-        <div>
-            
-        </div>
-        <div></div>
-        <div></div>
       </div>
     </div>
   );
