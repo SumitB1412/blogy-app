@@ -9,7 +9,7 @@ export const Navbar = () => {
     <div className={styles.navbar}>
       <div>
         <img
-          src="https://assets.website-files.com/6086e70e13f80b33a5b30495/608711fbc4ee05eb3ac7f3b2_Logo.png"
+          src="https://assets.website-files.com/601b0e022dc24f4ea11206ad/601e8c72c9acbbd5cb31dfcc_Blogy%20-%20Black%20Logo.svg"
           alt="application_logo"
         />
       </div>

@@ -13,10 +13,5 @@ code {
     monospace;
 }
 .carousel-inner{
-  height: 400px;
-}
-.item, .item img{
-  height: 100%;
-  width:  100%;
-  border: 1px solid red;
+  height: 500px;
 }

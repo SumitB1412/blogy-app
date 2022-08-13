@@ -1,4 +1,5 @@
 import Carousel from "react-bootstrap/Carousel";
+import styles from "../styles/carousel.module.css";
 
 const Data = [
   {
@@ -41,33 +42,28 @@ const Data = [
 function Carousels() {
   
   return (
-    <Carousel variant="dark" className="h-50">
-      <Carousel.Item
-        style={{
-          display: "flex",
-          border: "1px solid",
-          justifyContent: "space-around",
-        }}
-      >
+    <Carousel variant="dark" fade>
+      <Carousel.Item>
         <div>
-          <h3>Some text</h3>
-        </div>
-        <div>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWxBo00SBWf1a7EmTHrxbaOwm6wEMIHuMi8g&usqp=CAU"
-            alt="First slide"
-          />
+        <img
+          className="d-block"
+          src="https://assets.website-files.com/601b0eabbce5fc78dc318621/601e98759239ef2558d88222_Main%20Post%20Image%208.png"
+          alt="First slide"
+        />
+          <h2 style={{float:"right"}}>Some Heading</h2>
         </div>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVeU1ZmusWbP2NiJH8Al-zUCjwxzK8b-OH6Q&usqp=CAU"
+          className="d-block w-50 h-100"
+          src="https://assets.website-files.com/601b0eabbce5fc78dc318621/60302d12c924de6cd28f2b41_Main%20Post%20Image%2011.png"
           alt="Second slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMLB4LgJLIG6BuyMNB19sQE1PTr0gGJXN3ig&usqp=CAU"
+          className="d-block w-50 h-100"
+          src="https://assets.website-files.com/601b0eabbce5fc78dc318621/6030302271aa6a1af8d25e53_Main-Post-Image-12.jpg"
           alt="Third slide"
         />
       </Carousel.Item>
