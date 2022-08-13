@@ -1,25 +1,74 @@
-.container{
-    height: 550px;
-    border: 1px solid red;
-    position: relative;
+.container {
+  height: 550px;
+  /* border: 1px solid red; */
+  position: relative;
 }
 
-.child1{
-    height: 75%;
-    width: 100%;
-    z-index: 1;
+.child1 {
+  height: 75%;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
 }
-.child1>img{
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+.child1 > img {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.child2{
-    height: 40%;
-    width: 68%;
-    margin-top: -100px;
-    background-color: whitesmoke;
-    position: absolute;
-    z-index: 2;
+.child2 {
+  height: 40%;
+  width: 68%;
+  margin-top: -120px;
+  background-color: white;
+  position: absolute;
+  z-index: 2;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.line {
+  /* border-bottom: 3px solid red; */
+  width: 4%;
+  background-color: rgb(235, 2, 2);
+  height: 2px;
+  margin-right: 1%;
+}
+
+.child2 > h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(235, 2, 2);
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.child2 > h2 {
+  font-size: 34px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.child2 > h2:hover{
+    text-decoration: underline;
+}
+
+h2 + p {
+  font-size: 18px;
+  color: #000000;
+}
+p > strong {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 1%;
+}
+img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+img:hover {
+  cursor: pointer;
+  transition: 1s;
+  transform: scale(1.1);
 }

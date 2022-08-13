@@ -1,7 +1,7 @@
 .parent{
-    height: 800px;
+    height: auto;
     width: 100%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family: "Roboto Slab", serif;
     padding: 20px;
 }
@@ -15,14 +15,17 @@
     width: 100%;
     border-bottom: 2px solid black;
     margin-top: 1%;
+    margin-bottom: 3%;
 }
 .line>div{
     width: 11%;
     border-bottom: 3px solid red;
 }
 .boxes{
+    width: 90%;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(2,48%);
     grid-template-rows: auto;
-    column-gap: 5%;
+    column-gap: 4%;
 }

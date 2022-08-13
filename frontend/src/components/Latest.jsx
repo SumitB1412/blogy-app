@@ -9,6 +9,9 @@ export const Latest = () => {
         <div className={styles.line}><div></div></div>
         <div className={styles.boxes}>
             <Blog />
+            <Blog />
+            <Blog />
+            <Blog />
         </div>
     </div>
   )

@@ -10,7 +10,15 @@ export const Blog = () => {
           alt=""
         />
       </div>
-      <div className={styles.child2}></div>
+      <div className={styles.child2}>
+        <h3>
+          <div className={styles.line}></div>Travel
+        </h3>
+        <h2>What They Don’t Say About Ontario, Canada.</h2>
+        <p>
+          August 6, 2022 <strong>•</strong> 8 min read
+        </p>
+      </div>
     </div>
   );
 };
