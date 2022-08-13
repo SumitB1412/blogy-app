@@ -1,0 +1,48 @@
+.parent {
+  display: flex;
+  font-family: "Roboto Slab", serif;
+}
+.child {
+  margin-left: 2%;
+  margin-top: 5%;
+}
+.line {
+  /* border-bottom: 3px solid red; */
+  width: 4%;
+  background-color: rgb(235, 2, 2);
+  height: 2px;
+  margin-right: 1%;
+}
+
+img + div > h3 {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(235, 2, 2);
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+}
+
+h3 + h2 {
+  font-size: 40px;
+  /* text-align: center; */
+  margin-top: 3%;
+}
+h2 + p {
+  font-size: 18px;
+  color: #000000;
+}
+p > strong {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 1%;
+}
+img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+img:hover {
+  cursor: pointer;
+  transition: 1s;
+  transform: scale(1.02);
+}

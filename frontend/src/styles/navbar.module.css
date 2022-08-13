@@ -1,11 +1,12 @@
 /* styling the navbar */
 .navbar {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 70px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 30px;
   /* background-color: #fff; */
 }
 
@@ -14,7 +15,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .navbar img {
@@ -26,7 +27,7 @@
 .navbar img:hover {
   cursor: pointer;
   transition: 1s;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* second child */
@@ -47,7 +48,7 @@
   width: 0;
   height: 2px;
   background: rgb(121, 124, 124);
-  transition: width 0.4s;
+  transition: width 0.6s;
 }
 .navbar > div:nth-child(2) > p:hover::after {
   width: 100%;
