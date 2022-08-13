@@ -1,0 +1,16 @@
+import React from "react";
+import styles from "../styles/blog.module.css";
+
+export const Blog = () => {
+  return (
+    <div className={styles.container}>
+      <div className={styles.child1}>
+        <img
+          src="https://assets.website-files.com/601b0eabbce5fc78dc318621/601e9824945d83f018fd3180_Main%20Post%20Image%203.png"
+          alt=""
+        />
+      </div>
+      <div className={styles.child2}></div>
+    </div>
+  );
+};

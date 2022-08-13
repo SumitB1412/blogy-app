@@ -1,11 +1,11 @@
-import Carousels from "./components/Carousel";
 import { Navbar } from "./components/Navbar";
+import { Homepage } from "./pages/Homepage";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Carousels />
+      <Homepage />
     </div>
   );
 }
