@@ -1,41 +1,41 @@
-.loginParent {
+.registerParent {
   font-family: "Roboto Slab", serif;
 }
-.loginHeader {
+.registerHeader {
   height: 40px;
   width: 100%;
   border-bottom: 1px solid grey;
   display: flex;
   justify-content: space-between;
 }
-.loginHeader > div {
+.registerHeader > div {
   width: 20%;
   /* border: 1px solid red; */
   height: 100%;
 }
-.loginHeader > div:first-child {
+.registerHeader > div:first-child {
   display: flex;
   align-items: center;
   justify-content: center;
   color: rgb(174, 183, 197);
   font-size: 15px;
 }
-.loginHeader > div:first-child:hover {
+.registerHeader > div:first-child:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-.loginHeader > div:nth-child(2) {
+.registerHeader > div:nth-child(2) {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.loginHeader img {
+.registerHeader img {
   cursor: pointer;
 }
 
-/* login form */
+/* register form */
 
-.loginForm {
+.registerForm {
   height: auto;
   width: 30%;
   border: 3px solid rgb(174, 183, 197);
@@ -43,11 +43,13 @@
   margin-top: 50px;
   border-radius: 20px;
 }
-.loginForm h2 {
+
+.registerForm h2 {
   font-size: 24px;
   text-align: center;
   margin-top: 3%;
 }
+
 .logInGoogle {
   height: 180px;
   /* border: 1px solid black; */
@@ -71,34 +73,35 @@
 .logInGoogle strong {
   margin-left: 1%;
 }
-.loginParent p {
+
+.registerParent p {
   display: flex;
   flex-direction: row;
   width: 80%;
   margin: auto;
   color: rgb(133, 133, 133);
 }
-.loginParent p:before,
-.loginParent p:after {
+.registerParent p:before,
+.registerParent p:after {
   content: "";
   flex: 1 1;
   border-bottom: 1px solid rgb(133, 133, 133);
   margin: auto;
 }
-.loginParent p:before {
+.registerParent p:before {
   margin-right: 1%;
 }
-.loginParent p:after {
+.registerParent p:after {
   margin-left: 1%;
 }
-
-.info {
-  width: 80%;
-  color: #6c798f;
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 30px;
+h2 {
+  margin-bottom: 0%;
 }
+
+h2 + span {
+  color: grey;
+}
+
 .inputBox {
   height: 25%;
   width: 80%;
@@ -135,6 +138,7 @@
 .newTab {
   color: #6c798f;
   font-size: 15px;
+  text-align: center;
 }
 .createAcc {
   color: rgb(69, 112, 216);
@@ -142,15 +146,5 @@
   font-size: 15px;
   cursor: pointer;
   margin-bottom: 5%;
-}
-
-/* alert message */
-
-.alertMsg {
-  width: 80%;
-  color: red;
-  border: 1px solid red;
-  padding: 15px 30px;
-  border-radius: 10px;
-  margin-left: 11%;
+  text-align: center;
 }
