@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "../styles/navbar.module.css";
 import { RiAccountCircleLine } from "react-icons/ri";
-import { GrAdd } from "react-icons/gr";
+// import { GrAdd } from "react-icons/gr";
 // import { BsSearch } from "react-icons/bs";
+import { BsPencilSquare } from "react-icons/bs";
 
 export const Navbar = () => {
   return (
@@ -21,11 +22,11 @@ export const Navbar = () => {
       </div>
       <div>
         <RiAccountCircleLine
-          fontSize="22px"
+          fontSize="26px"
           style={{ marginRight: "5%" }}
           cursor="pointer"
         />
-        <GrAdd fontSize="22px" style={{ marginRight: "5%" }} cursor="pointer" />
+        <BsPencilSquare fontSize="23px" style={{ marginRight: "5%" }} cursor="pointer" />
         {/* <BsSearch
           fontSize="18px"
           style={{ marginRight: "5%" }}

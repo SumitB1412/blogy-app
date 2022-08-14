@@ -1,7 +1,8 @@
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
+import { NewBlog } from "./pages/NewBlog";
 // import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
+// import { Register } from "./pages/Register";
 // import { Homepage } from "./pages/Homepage";
 // import { Travel } from "./pages/Travel";
 
@@ -12,7 +13,8 @@ function App() {
       {/* <Homepage /> */}
       {/* <Travel /> */}
       {/* <Login /> */}
-      <Register />
+      {/* <Register /> */}
+      <NewBlog />
       <Footer />
     </div>
   );
