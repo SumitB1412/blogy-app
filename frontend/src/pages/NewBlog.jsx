@@ -6,10 +6,15 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import { useRef } from "react";
 import axios from "axios";
+// import { useSelector } from "react-redux";
+import Alert from "react-bootstrap/Alert";
+import { useNavigate } from "react-router-dom";
 
 export const NewBlog = () => {
+  // const { token, userId } = useSelector((store) => store.auth);
   const [formData, setFormData] = useState({});
   const inputFile = useRef();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,6 +37,20 @@ export const NewBlog = () => {
       headers: { "Content-Type": "multipart/form-data" },
     });
   };
+
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    return (
+      <Alert className="text-center" variant="danger">
+        To write a new blog first {"   "}
+        <Alert.Link onClick={() => navigate("/login")}>login here</Alert.Link>
+        {"   "}
+        to your account
+      </Alert>
+    );
+  }
+
   return (
     <div className={styles.jarvis}>
       <h1 style={{ textAlign: "center" }}>Tell everyone your New Story...</h1>

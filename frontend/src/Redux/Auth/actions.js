@@ -4,7 +4,11 @@ export const REGISTER = "REGISTER";
 
 
 export const login = (data, dispatch) => {
-    axios.post("http://localhost:8000/auth/login", data).then((res) => dispatch({payload: res.data,type:LOGIN})).catch((err) => console.log(err))
+    axios.post("http://localhost:8000/auth/login", data).then((res) => {
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("userId", res.data.id);
+        dispatch({ payload: res.data, type: LOGIN })
+    }).catch((err) => console.log(err))
 }
 
 export const register = (data, dispatch) => {

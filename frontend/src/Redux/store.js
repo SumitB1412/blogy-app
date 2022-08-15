@@ -7,4 +7,7 @@ const rootReducer = combineReducers({
     auth: authReducer
 });
 
-export const store = createStore(rootReducer);
+const store = createStore(rootReducer);
+
+
+export { store };
