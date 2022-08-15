@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "../styles/register.module.css";
 import { BsArrowLeft } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
@@ -8,11 +8,14 @@ import { MdAlternateEmail } from "react-icons/md";
 import { BiLock, BiUser } from "react-icons/bi";
 // import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { register } from "../Redux/Auth/actions";
+import {useDispatch,useSelector} from "react-redux";
 
 export const Register = () => {
   //   const { user, googleSignIn, createUser } = useContext(AuthContext);
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleGoogleSignIn = async () => {
     // try {
@@ -31,7 +34,7 @@ export const Register = () => {
   };
 
   const handleSubmit = () => {
-    console.log(userData);
+    register(userData, dispatch);
   };
 
   //   useEffect(() => {

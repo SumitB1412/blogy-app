@@ -15,7 +15,7 @@ authRouter.post("/signup", async (req, res) => {
     const hash = sha256(password);
     const user = await new UserModel({ email, name, password: hash });
     await user.save();
-    res.send(user);
+    res.send({ message: "User saved successfully" });
 })
 
 authRouter.post("/login", async (req, res) => {
@@ -26,7 +26,7 @@ authRouter.post("/login", async (req, res) => {
         return res.status(401).send("Wrong credentials");
     }
     const token = jwt.sign({ name: user.name, email: email.username, id: user._id }, process.env.SECRET);
-    res.send({ message: "Login Success", token: token });
+    res.send({ message: "Login Success", token: token, id: user._id });
 })
 
 module.exports = authRouter;

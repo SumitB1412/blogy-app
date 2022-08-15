@@ -21,9 +21,11 @@ export const NewBlog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     const form = new FormData();
     form.append("title", formData.title);
     form.append("body", formData.body);
+    form.append("tags", formData.tags);
     form.append("image", inputFile.current.files[0]);
 
     axios.post("http://localhost:8000/blogs/user/:userId/new-blog", formData, {
@@ -57,6 +59,17 @@ export const NewBlog = () => {
             name="body"
           />
         </FloatingLabel>
+        <Form.Select
+          onChange={handleChange}
+          name="tags"
+          aria-label="Default select example"
+          className="mb-3 mt-3"
+        >
+          <option>Select The Category</option>
+          <option value="Travel">Travel</option>
+          <option value="Tech">Tech</option>
+          <option value="Food">Food</option>
+        </Form.Select>
         <Form.Group controlId="formFile" className="mb-3 mt-3">
           <Form.Control
             type="file"
@@ -65,6 +78,7 @@ export const NewBlog = () => {
             ref={inputFile}
           />
         </Form.Group>
+
         <Button variant="success" type="submit">
           Publish
         </Button>

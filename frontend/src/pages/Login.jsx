@@ -9,13 +9,13 @@ import { BiLock } from "react-icons/bi";
 import { useState } from "react";
 // import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../Redux/Auth/actions";
 
 export const Login = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [change, setChange] = useState(false);
-  const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
+  const dispatch = useDispatch();
   //   const { user, googleSignIn, signIn } = useContext(AuthContext);
 
   //   useEffect(() => {
@@ -33,24 +33,19 @@ export const Login = () => {
     // }
   };
 
-  const handleSubmit = async () => {
-    // setError("");
-    // try {
-    //   await signIn(id, password);
-    //   // navigate('/account')
-    // } catch (e) {
-    //   setError(e.message);
-    //   console.log(e);
-    // }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
   };
 
-  const handleClick = () => {
-    if (!id) {
-      setId("none");
-    } else {
-      setChange(true);
-    }
+  const handleSubmit = () => {
+    console.log(userData);
+    login(userData, dispatch);
   };
+
 
   return (
     <div className={styles.loginParent}>
@@ -58,13 +53,7 @@ export const Login = () => {
         <div onClick={() => navigate("/")}>
           <BsArrowLeft style={{ marginRight: "2%" }} /> Back to Blogs
         </div>
-        <div>
-          {/* <img
-            width="80%"
-            src="https://indianexpress.com/wp-content/themes/indianexpress/images/evolok/indian-express-logo-n.svg"
-            alt="logo"
-          /> */}
-        </div>
+        <div></div>
         <div></div>
       </div>
       <div className={styles.loginForm}>
@@ -104,13 +93,6 @@ export const Login = () => {
           Enter the email address or mobile number associated with your account
           to sign in.
         </div>
-        {id === "none" ? (
-          <span className={styles.alertMsg}>
-            Insert an email or phone number
-          </span>
-        ) : (
-          ""
-        )}
         <div className={styles.inputBox}>
           <div style={{ display: "flex", alignItems: "center" }}>
             <MdAlternateEmail
@@ -118,44 +100,35 @@ export const Login = () => {
                 borderBottom: "1px solid grey",
                 fontSize: "20px",
                 color: "grey",
-                marginTop: "2.1%",
+                marginTop: "3%",
               }}
             />
             <input
               type="email"
               placeholder="Insert Phone Number/Email"
-              onChange={(e) => setId(e.target.value)}
+              name="email"
+              onChange={handleChange}
             />
           </div>
-          {change ? (
-            <div
-              style={{ display: "flex", alignItems: "center", marginTop: "5%" }}
-            >
-              <BiLock
-                style={{
-                  borderBottom: "1px solid grey",
-                  fontSize: "20px",
-                  color: "grey",
-                  marginTop: "2.1%",
-                }}
-              />
-              <input
-                type="password"
-                placeholder="Enter Password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          ) : (
-            ""
-          )}
-          {change ? (
-            <button onClick={handleSubmit}>Sign In</button>
-          ) : (
-            <button onClick={handleClick}>Continue</button>
-          )}
-          {/* <button onClick={handleClick}>
-            {change ? "Sign In" : "Continue"}
-          </button> */}
+          <div
+            style={{ display: "flex", alignItems: "center", marginTop: "5%" }}
+          >
+            <BiLock
+              style={{
+                borderBottom: "1px solid grey",
+                fontSize: "20px",
+                color: "grey",
+                marginTop: "3%",
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+              onChange={handleChange}
+            />
+          </div>
+          <button onClick={handleSubmit}>Sign In</button>
           <div className={styles.newTab}>New to Blogy?</div>
           <div
             className={styles.createAcc}
