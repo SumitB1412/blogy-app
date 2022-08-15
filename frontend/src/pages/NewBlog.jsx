@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import { useRef } from "react";
+import axios from "axios";
 
 export const NewBlog = () => {
   const [formData, setFormData] = useState({});
@@ -20,17 +21,14 @@ export const NewBlog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", formData.title);
-    formData.append("body", formData.body);
-    formData.append("image", inputFile.current.files[0]);
+    const form = new FormData();
+    form.append("title", formData.title);
+    form.append("body", formData.body);
+    form.append("image", inputFile.current.files[0]);
 
-    fetch("http://localhost:8000/blogs/user/new-blog", {
-      method: "post",
-      body: formData,
-    })
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    axios.post("http://localhost:8000/blogs/user/:userId/new-blog", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   };
   return (
     <div className={styles.jarvis}>
