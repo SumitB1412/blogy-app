@@ -4,8 +4,10 @@ import { RiAccountCircleLine } from "react-icons/ri";
 // import { GrAdd } from "react-icons/gr";
 // import { BsSearch } from "react-icons/bs";
 import { BsPencilSquare } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <div className={styles.navbar}>
       <div>
@@ -15,18 +17,24 @@ export const Navbar = () => {
         />
       </div>
       <div>
-        <p>Home</p>
-        <p>Tech</p>
-        <p>Travel</p>
-        <p>Food</p>
+        <p onClick={() => navigate("/")}>Home</p>
+        <p onClick={() => navigate("/categories/tech")}>Tech</p>
+        <p onClick={() => navigate("/categories/travel")}>Travel</p>
+        <p onClick={() => navigate("/categories/food")}>Food</p>
       </div>
       <div>
         <RiAccountCircleLine
+          onClick={() => navigate("/login")}
           fontSize="26px"
           style={{ marginRight: "5%" }}
           cursor="pointer"
         />
-        <BsPencilSquare fontSize="23px" style={{ marginRight: "5%" }} cursor="pointer" />
+        <BsPencilSquare
+          onClick={() => navigate("/new-blog")}
+          fontSize="23px"
+          style={{ marginRight: "5%" }}
+          cursor="pointer"
+        />
         {/* <BsSearch
           fontSize="18px"
           style={{ marginRight: "5%" }}

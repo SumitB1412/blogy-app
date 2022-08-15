@@ -5,16 +5,13 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 import { AiFillApple } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
-import { BiLock } from "react-icons/bi";
+import { BiLock, BiUser } from "react-icons/bi";
 // import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   //   const { user, googleSignIn, createUser } = useContext(AuthContext);
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
-  const [error, setError] = useState("");
+  const [userData, setUserData] = useState({});
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
@@ -25,15 +22,16 @@ export const Register = () => {
     // }
   };
 
-  const handleSubmit = async () => {
-    // setError("");
-    // try {
-    //   await createUser(id, password);
-    //   // navigate("/account");
-    // } catch (e) {
-    //   setError(e.message);
-    //   console.log(e.message);
-    // }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = () => {
+    console.log(userData);
   };
 
   //   useEffect(() => {
@@ -46,7 +44,7 @@ export const Register = () => {
   return (
     <div className={styles.registerParent}>
       <div className={styles.registerHeader}>
-        <div>
+        <div onClick={() => navigate("/")}>
           <BsArrowLeft style={{ marginRight: "2%" }} /> Back to Blogs
         </div>
         <div></div>
@@ -86,19 +84,43 @@ export const Register = () => {
         </div>
         <p>or</p>
         <div className={styles.inputBox}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginTop: "5%",
+              marginBottom: "5%",
+            }}
+          >
+            <BiUser
+              style={{
+                borderBottom: "1px solid grey",
+                fontSize: "20px",
+                color: "grey",
+                marginTop: "3%",
+              }}
+            />
+            <input
+              type="text"
+              placeholder="Name"
+              onChange={handleChange}
+              name="name"
+            />
+          </div>
           <div style={{ display: "flex", alignItems: "center" }}>
             <MdAlternateEmail
               style={{
                 borderBottom: "1px solid grey",
                 fontSize: "20px",
                 color: "grey",
-                marginTop: "2.1%",
+                marginTop: "3%",
               }}
             />
             <input
               type="email"
               placeholder="Email address"
-              onChange={(e) => setId(e.target.value)}
+              onChange={handleChange}
+              name="email"
             />
           </div>
           <div
@@ -109,32 +131,17 @@ export const Register = () => {
                 borderBottom: "1px solid grey",
                 fontSize: "20px",
                 color: "grey",
-                marginTop: "2.1%",
+                marginTop: "3%",
               }}
             />
             <input
               type="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              onChange={handleChange}
             />
           </div>
-          <div
-            style={{ display: "flex", alignItems: "center", marginTop: "5%" }}
-          >
-            <BiLock
-              style={{
-                borderBottom: "1px solid grey",
-                fontSize: "20px",
-                color: "grey",
-                marginTop: "2.1%",
-              }}
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              onChange={(e) => setConfirmPass(e.target.value)}
-            />
-          </div>
+
           <button onClick={handleSubmit}>Register</button>
           <div className={styles.newTab}>Already have an account?</div>
           <div className={styles.createAcc} onClick={() => navigate("/login")}>

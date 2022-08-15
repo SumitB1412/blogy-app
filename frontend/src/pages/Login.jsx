@@ -16,14 +16,14 @@ export const Login = () => {
   const [change, setChange] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-//   const { user, googleSignIn, signIn } = useContext(AuthContext);
+  //   const { user, googleSignIn, signIn } = useContext(AuthContext);
 
-//   useEffect(() => {
-//     if (user !== null) {
-//       console.log(user);
-//       navigate("/");
-//     }
-//   }, [user]);
+  //   useEffect(() => {
+  //     if (user !== null) {
+  //       console.log(user);
+  //       navigate("/");
+  //     }
+  //   }, [user]);
 
   const handleGoogleSignIn = async () => {
     // try {
@@ -55,7 +55,7 @@ export const Login = () => {
   return (
     <div className={styles.loginParent}>
       <div className={styles.loginHeader}>
-        <div>
+        <div onClick={() => navigate("/")}>
           <BsArrowLeft style={{ marginRight: "2%" }} /> Back to Blogs
         </div>
         <div>
