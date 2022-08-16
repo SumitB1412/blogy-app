@@ -1,0 +1,26 @@
+.thanos{
+    height: 600px;
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+    color: #000000;
+    font-family: "Roboto Slab", serif;
+}
+/* .thanos h2{
+    
+} */
+.wanda{
+    display: flex;
+    /* border: 1px solid; */
+    width: 40%;
+    justify-content: space-between;
+}
+.wanda p+p{
+    width: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.wanda+p{
+    margin-top: -10px;
+}

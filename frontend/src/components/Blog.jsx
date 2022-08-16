@@ -18,6 +18,7 @@ export const Blog = () => {
         <p>
           August 6, 2022 <strong>•</strong> 8 min read
         </p>
+        <p>By Pablo Pandey</p>
       </div>
     </div>
   );

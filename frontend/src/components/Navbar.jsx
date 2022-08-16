@@ -18,9 +18,9 @@ export const Navbar = () => {
       </div>
       <div>
         <p onClick={() => navigate("/")}>Home</p>
-        <p onClick={() => navigate("/categories/tech")}>Tech</p>
-        <p onClick={() => navigate("/categories/travel")}>Travel</p>
-        <p onClick={() => navigate("/categories/food")}>Food</p>
+        <p onClick={() => navigate("/tech")}>Tech</p>
+        <p onClick={() => navigate("/travel")}>Travel</p>
+        <p onClick={() => navigate("/food")}>Food</p>
       </div>
       <div>
         <RiAccountCircleLine

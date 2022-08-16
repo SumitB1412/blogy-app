@@ -57,6 +57,7 @@ export const NewBlog = () => {
       })
       .then((res) => console.log(res))
       .catch((err) => console.ḷog(err));
+      navigate("/");
   };
 
   return (

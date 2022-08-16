@@ -46,7 +46,7 @@
 }
 
 .child2 > h2 {
-  font-size: 34px;
+  font-size: 30px;
   color: #000000;
   cursor: pointer;
 }
@@ -72,4 +72,7 @@ img:hover {
   cursor: pointer;
   transition: 1s;
   transform: scale(1.1);
+}
+.child2 p+p{
+  font-style: italic;
 }
