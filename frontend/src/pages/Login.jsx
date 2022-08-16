@@ -42,7 +42,6 @@ export const Login = () => {
   };
 
   const handleSubmit = () => {
-    console.log(userData);
     login(userData, dispatch);
   };
 

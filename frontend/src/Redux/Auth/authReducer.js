@@ -8,7 +8,6 @@ const initState = {
 export const authReducer = (state = initState, { type, payload }) => {
     switch (type) {
         case LOGIN: {
-            console.log(payload.token, payload.id)
             return {
                 ...state,
                 token: payload.token,

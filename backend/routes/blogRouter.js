@@ -26,14 +26,16 @@ blogRouter.get("/user/:userId", async (req, res) => {
     res.send(blogs);
 })
 
-blogRouter.post("/user/new-blog", uploads.single("image"), async (req, res) => {
+blogRouter.post("/user/:userId/new-blog", uploads.single("image"), async (req, res) => {
     const { userId } = req.params;
     const token = req.headers["authorization"].split(' ')[1];
+    
     if (!token) return res.send("Invalid user token");
     try {
         const verification = jwt.verify(token, process.env.SECRET);
         if (verification) {
             const { title, subTitle, body, date, tags } = req.body;
+            console.log(title,body)
             const imagePath = `./uploads/${req.file.originalname}`
             const blog = await new BlogModel({ title, authorId: userId, image: imagePath, subTitle, body, date, tags });
             await blog.save();

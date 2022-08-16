@@ -16,29 +16,8 @@ export const NewBlog = () => {
   const inputFile = useRef();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    const form = new FormData();
-    form.append("title", formData.title);
-    form.append("body", formData.body);
-    form.append("tags", formData.tags);
-    form.append("image", inputFile.current.files[0]);
-
-    axios.post("http://localhost:8000/blogs/user/:userId/new-blog", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-  };
-
   const token = localStorage.getItem("token");
+  const userId = localStorage.getItem("userId");
 
   if (!token) {
     return (
@@ -50,6 +29,34 @@ export const NewBlog = () => {
       </Alert>
     );
   }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = new FormData();
+    form.append("title", formData.title);
+    form.append("body", formData.body);
+    form.append("tags", formData.tags);
+    form.append("image", inputFile.current.files[0]);
+
+    axios.post(
+      `http://localhost:8000/blogs/user/${userId}/new-blog`,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          authorization: `Bearer ${token}`,
+        },
+      }
+    ).then((res)=>console.log(res)).catch((err)=>console.ḷog(err));
+  };
 
   return (
     <div className={styles.jarvis}>
