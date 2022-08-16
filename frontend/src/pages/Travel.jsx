@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { Blog } from "../components/Blog";
 import styles from "../styles/travel.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getSpecificBlogs } from "../Redux/Blogs/actions";
 
 export const Travel = () => {
+  const dispatch = useDispatch;
+  useEffect(() => {
+    getSpecificBlogs("Travel", dispatch);
+  }, []);
+  const { specific } = useSelector((store) => store.blogs);
   return (
     <div className={styles.travelContainer}>
       <div>

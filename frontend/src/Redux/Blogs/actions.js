@@ -14,6 +14,14 @@ export const getAllBlogs = (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-export const setSpecificBlogs = () => {
-  //
+export const getSpecificBlogs = (tag, dispatch) => {
+  axios
+    .get(`http://localhost:8000/blogs/${tag}`)
+    .then(({ data }) => {
+      dispatch({
+        type: GETSPECIFIC,
+        payload: data,
+      });
+    })
+    .catch((err) => console.log(err));
 };

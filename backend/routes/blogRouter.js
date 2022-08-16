@@ -26,6 +26,15 @@ blogRouter.get("/all",(req,res)=>{
   res.send(blogs);
 })
 
+blogRouter.get("/:tag", async (req,res)=>{
+  const {tag} = req.params;
+  const blogs = await BlogModel.find({tags: tag});
+  if (!blogs) {
+    return res.status(401).send({ message: "BLogs not found" });
+  }
+  res.send(blogs);
+})
+
 blogRouter.get("/user/:userId", async (req, res) => {
   const { userId } = req.params;
   const blogs = await BlogModel.find({ authorId: userId });
