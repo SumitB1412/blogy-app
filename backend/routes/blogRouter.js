@@ -18,6 +18,14 @@ const upload = multer({ storage: storage });
 
 const blogRouter = Router();
 
+blogRouter.get("/all",(req,res)=>{
+  const blogs = await BlogModel.find();
+  if (!blogs) {
+    return res.status(401).send({ message: "BLogs not found" });
+  }
+  res.send(blogs);
+})
+
 blogRouter.get("/user/:userId", async (req, res) => {
   const { userId } = req.params;
   const blogs = await BlogModel.find({ authorId: userId });

@@ -36,12 +36,12 @@ p > strong {
   font-weight: bold;
   font-size: 20px;
   margin: 1%;
-}
-img {
+} 
+.parent img {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
-img:hover {
+.parent img:hover {
   cursor: pointer;
   transition: 1s;
   transform: scale(1.02);
