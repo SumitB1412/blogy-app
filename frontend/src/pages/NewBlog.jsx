@@ -46,16 +46,17 @@ export const NewBlog = () => {
     form.append("tags", formData.tags);
     form.append("image", inputFile.current.files[0]);
 
-    axios.post(
-      `http://localhost:8000/blogs/user/${userId}/new-blog`,
-      formData,
-      {
+    // console.log(form.get("title"));
+
+    axios
+      .post(`http://localhost:8000/blogs/user/${userId}/new-blog`, form, {
         headers: {
           "Content-Type": "multipart/form-data",
           authorization: `Bearer ${token}`,
         },
-      }
-    ).then((res)=>console.log(res)).catch((err)=>console.ḷog(err));
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.ḷog(err));
   };
 
   return (
