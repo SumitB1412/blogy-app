@@ -1,33 +1,32 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Blog } from "../components/Blog";
 import styles from "../styles/travel.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getSpecificBlogs } from "../Redux/Blogs/actions";
 
-export const Travel = () => {
-  const dispatch = useDispatch;
+export const SinglePages = ({ props }) => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    getSpecificBlogs("Travel", dispatch);
-  }, []);
+    getSpecificBlogs(props, dispatch);
+  }, [props]);
   const { specific } = useSelector((store) => store.blogs);
   return (
     <div className={styles.travelContainer}>
       <div>
         <h3>
-          <div className={styles.line}></div>Travel
+          <div className={styles.line}></div>
+          {props}
         </h3>
-        <h1 className={styles.h1}>Travel</h1>
+        <h1 className={styles.h1}>{props}</h1>
         <div className={styles.line1}>
           <div></div>
         </div>
       </div>
       <div>
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
+        {specific &&
+          specific.map((el, index) => {
+            return <Blog key={el} {...el} />;
+          })}
       </div>
     </div>
   );

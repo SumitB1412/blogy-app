@@ -14,7 +14,6 @@ export const Homepage = () => {
   return (
     <div>
       <Carousels />
-      {/* <Posts type={"Latest Posts"} /> */}
       <Posts type={"All Posts"} />
     </div>
   );
