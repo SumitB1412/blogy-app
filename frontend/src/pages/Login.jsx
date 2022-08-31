@@ -32,7 +32,6 @@ export const Login = () => {
     //   console.log(err);
     // }
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData({
@@ -40,11 +39,9 @@ export const Login = () => {
       [name]: value,
     });
   };
-
   const handleSubmit = () => {
     login(userData, dispatch);
   };
-
 
   return (
     <div className={styles.loginParent}>

@@ -45,11 +45,11 @@ blogRouter.get("/user/:userId", async (req, res) => {
 });
 
 blogRouter.post(
-  "/user/:userId/new-blog",
+  "/:authorName/:userId/new-blog",
   upload.single("image"),
   async (req, res) => {
     // console.log(req.file);
-    const { userId } = req.params;
+    const { userId, authorName } = req.params;
     const token = req.headers["authorization"].split(" ")[1];
 
     if (!token) return res.send("Invalid user token");
@@ -64,6 +64,7 @@ blogRouter.post(
         const blog = await new BlogModel({
           title,
           authorId: userId,
+          authorName,
           image: imagePath,
           body,
           date: currDate,

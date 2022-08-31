@@ -5,19 +5,18 @@ import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Button from "react-bootstrap/Button";
 import { useRef } from "react";
-import axios from "axios";
-// import { useSelector } from "react-redux";
 import Alert from "react-bootstrap/Alert";
 import { useNavigate } from "react-router-dom";
+import { postBlog } from "../Redux/Blogs/actions";
 
 export const NewBlog = () => {
-  // const { token, userId } = useSelector((store) => store.auth);
   const [formData, setFormData] = useState({});
   const inputFile = useRef();
   const navigate = useNavigate();
 
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("userName");
 
   if (!token) {
     return (
@@ -40,25 +39,14 @@ export const NewBlog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData)
+    console.log(formData);
     const form = new FormData();
     form.append("title", formData.title);
     form.append("body", formData.body);
     form.append("tags", formData.tags);
     form.append("image", inputFile.current.files[0]);
 
-    // console.log(form.get("title"));
-
-    axios
-      .post(`http://localhost:8000/blogs/user/${userId}/new-blog`, form, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => console.log(res))
-      .catch((err) => console.ḷog(err));
-      // navigate("/");
+    postBlog(token, userId, userName, form);
   };
 
   return (

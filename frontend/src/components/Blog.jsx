@@ -1,29 +1,26 @@
 import React from "react";
 import styles from "../styles/blog.module.css";
 
-export const Blog = () => {
+export const Blog = (props) => {
   const handleClick = () => {
     //
   };
   return (
     <div className={styles.container}>
       <div onClick={handleClick} className={styles.child1}>
-        <img
-          src="https://assets.website-files.com/601b0eabbce5fc78dc318621/601e9824945d83f018fd3180_Main%20Post%20Image%203.png"
-          alt=""
-        />
+        <img src={`http://localhost:8000/static/${props.image}`} alt="" />
       </div>
       <div className={styles.child2}>
         <h3>
-          <div className={styles.line}></div>Travel
+          <div className={styles.line}></div>{props.tags}
         </h3>
         <h2 onClick={handleClick}>
-          What They Don’t Say About Ontario, Canada.
+          {props.title}
         </h2>
         <p>
-          August 6, 2022 <strong>•</strong> 8 min read
+          {props.date} <strong>•</strong> 8 min read
         </p>
-        <p>By Pablo Pandey</p>
+        <p>By {props.authorName}</p>
       </div>
     </div>
   );
