@@ -46,7 +46,7 @@ export const NewBlog = () => {
     form.append("tags", formData.tags);
     form.append("image", inputFile.current.files[0]);
 
-    postBlog(token, userId, userName, form);
+    postBlog(token, userId, userName, form,navigate);
   };
 
   return (

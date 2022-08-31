@@ -2,8 +2,10 @@ import axios from "axios";
 export const GETALL = "GETALL";
 export const GETSPECIFIC = "GETSPECIFIC";
 export const POSTBLOG = "POSTBLOG";
+export const SINGLEBLOG = "SINGLEBLOG";
 
-export const postBlog = (token, userId,userName, form) => {
+// posting the blog
+export const postBlog = (token, userId, userName, form, navigate) => {
   axios
     .post(`http://localhost:8000/blogs/${userName}/${userId}/new-blog`, form, {
       headers: {
@@ -13,9 +15,10 @@ export const postBlog = (token, userId,userName, form) => {
     })
     .then((res) => console.log(res))
     .catch((err) => console.ḷog(err));
-  // navigate("/");
+  navigate("/");
 };
 
+// getting all the blogs
 export const getAllBlogs = (dispatch) => {
   axios
     .get("http://localhost:8000/blogs/all")
@@ -29,6 +32,7 @@ export const getAllBlogs = (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+// getting specific blogs tagwise
 export const getSpecificBlogs = (tag, dispatch) => {
   axios
     .get(`http://localhost:8000/blogs/${tag}`)
@@ -39,4 +43,9 @@ export const getSpecificBlogs = (tag, dispatch) => {
       });
     })
     .catch((err) => console.log(err));
+};
+
+// passing props to single page blog
+export const singleBlog = (el, dispatch) => {
+  dispatch({ type: SINGLEBLOG, payload: el });
 };

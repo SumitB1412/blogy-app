@@ -25,7 +25,7 @@ export const SinglePages = ({ props }) => {
       <div>
         {specific &&
           specific.map((el, index) => {
-            return <Blog key={el} {...el} />;
+            return <Blog key={index} {...el} />;
           })}
       </div>
     </div>

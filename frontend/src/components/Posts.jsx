@@ -18,7 +18,7 @@ export const Posts = ({ type }) => {
       </div>
       <div className={styles.boxes}>
         {blogs && blogs.map((el,index)=>{
-          return <Blog key={el} {...el} />
+          return <Blog key={index} {...el} />
         })}
         {/* <Blog />
         <Blog />
