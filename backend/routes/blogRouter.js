@@ -18,22 +18,22 @@ const upload = multer({ storage: storage });
 
 const blogRouter = Router();
 
-blogRouter.get("/all",(req,res)=>{
+blogRouter.get("/all", async (req, res) => {
   const blogs = await BlogModel.find();
   if (!blogs) {
-    return res.status(401).send({ message: "BLogs not found" });
+    return res.status(401).send({ message: "Blogs not found" });
   }
   res.send(blogs);
-})
+});
 
-blogRouter.get("/:tag", async (req,res)=>{
-  const {tag} = req.params;
-  const blogs = await BlogModel.find({tags: tag});
+blogRouter.get("/:tag", async (req, res) => {
+  const { tag } = req.params;
+  const blogs = await BlogModel.find({ tags: tag });
   if (!blogs) {
-    return res.status(401).send({ message: "BLogs not found" });
+    return res.status(401).send({ message: "Blogs not found" });
   }
   res.send(blogs);
-})
+});
 
 blogRouter.get("/user/:userId", async (req, res) => {
   const { userId } = req.params;
@@ -56,22 +56,22 @@ blogRouter.post(
     try {
       const verification = jwt.verify(token, process.env.SECRET);
       if (verification) {
-    let date = Date();
-    let currDate = date.slice(4, 15).toString();
-    const { title, body, tags } = req.body;
-    const imagePath = req.file.originalname;
-    console.log(title, body, currDate, tags);
-    const blog = await new BlogModel({
-      title,
-      authorId: userId,
-        image: imagePath,
-      body,
-      date: currDate,
-      tags,
-    });
-    await blog.save();
-    res.send("Blogged saved successfully");
-    }else {
+        let date = Date();
+        let currDate = date.slice(4, 15).toString();
+        const { title, body, tags } = req.body;
+        const imagePath = req.file.originalname;
+        // console.log(title, body, currDate, tags);
+        const blog = await new BlogModel({
+          title,
+          authorId: userId,
+          image: imagePath,
+          body,
+          date: currDate,
+          tags,
+        });
+        await blog.save();
+        res.send("Blogged saved successfully");
+      } else {
         res.status(403).send("User Unauthorized");
       }
     } catch (err) {

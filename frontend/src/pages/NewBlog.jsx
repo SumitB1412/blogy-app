@@ -40,6 +40,7 @@ export const NewBlog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData)
     const form = new FormData();
     form.append("title", formData.title);
     form.append("body", formData.body);
@@ -57,7 +58,7 @@ export const NewBlog = () => {
       })
       .then((res) => console.log(res))
       .catch((err) => console.ḷog(err));
-      navigate("/");
+      // navigate("/");
   };
 
   return (
@@ -106,7 +107,6 @@ export const NewBlog = () => {
             ref={inputFile}
           />
         </Form.Group>
-
         <Button variant="success" type="submit">
           Publish
         </Button>
