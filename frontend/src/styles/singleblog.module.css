@@ -39,3 +39,12 @@
 .bodyDiv {
   overflow-wrap: break-word;
 }
+
+/* the comment box */
+
+.commentBox{
+  width: 60%;
+  height: 200px;
+  border: 1px solid black;
+  margin: auto;
+}

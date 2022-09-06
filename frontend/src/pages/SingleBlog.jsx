@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 export const SingleBlog = () => {
   const { singleBlog } = useSelector((store) => store.blogs);
   return (
+    <>
     <div className={styles.thanos}>
       <h2>{singleBlog.title}</h2>
       <div className={styles.wanda}>
@@ -23,5 +24,7 @@ export const SingleBlog = () => {
         <p className={styles.blogBody}>{singleBlog.body}</p>
       </div>
     </div>
+    <div className={styles.commentBox}></div>
+    </>
   );
 };
