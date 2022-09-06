@@ -43,8 +43,36 @@
 /* the comment box */
 
 .commentBox{
-  width: 60%;
+  width: 48%;
   height: 200px;
   border: 1px solid black;
   margin: auto;
+}
+
+.commentBox>div:first-child{
+  display: flex;
+  /* align-items: center; */
+  /* justify-content: space-around; */
+}
+
+/* .commentBox>div:first-child>div:first-child{
+  width: 10%;
+} */
+.commentBox>div:first-child>div:last-child{
+  width: 80%;
+}
+
+.commentBox>.buttonBox{
+  width: 90%;
+  height: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 5%;
+}
+
+.commentBox>.buttonBox>button{
+  height: 80%;
+  display: flex;
+  align-items: center;
 }
