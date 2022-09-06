@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/singleblog.module.css";
 import { BiTimeFive } from "react-icons/bi";
 import { useSelector } from "react-redux";
@@ -8,7 +8,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export const SingleBlog = () => {
+  const [comment, setComment] = useState("");
   const { singleBlog } = useSelector((store) => store.blogs);
+  const postComment = () => {
+    console.log(comment);
+  }
   return (
     <>
       <div className={styles.thanos}>
@@ -45,13 +49,15 @@ export const SingleBlog = () => {
                 as="textarea"
                 placeholder="Leave a comment here"
                 style={{ height: "100px" }}
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
               />
             </FloatingLabel>
           </div>
         </div>
         <div className={styles.buttonBox}>
           <Button variant="outline-danger">Cancel</Button>
-          <Button variant="outline-primary">Post Comment</Button>
+          <Button variant="outline-primary" onClick={postComment}>Post Comment</Button>
         </div>
       </div>
     </>
