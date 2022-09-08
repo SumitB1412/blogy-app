@@ -6,7 +6,7 @@ import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 
 export const Footer = () => {
   const linkedin = () => {
-    window.open("https://www.linkedin.com/in/sumit-beniwal-987595232/", "_blank");
+    window.open("https://www.linkedin.com/in/beniwalsumit/", "_blank");
   };
   const github = () => {
     window.open("https://github.com/SumitB1412", "_blank");

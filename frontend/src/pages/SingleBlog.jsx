@@ -3,16 +3,15 @@ import styles from "../styles/singleblog.module.css";
 import { BiTimeFive } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { RiAccountCircleLine } from "react-icons/ri";
-// import FloatingLabel from "react-bootstrap/FloatingLabel";
-// import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export const SingleBlog = () => {
-  // const [comment, setComment] = useState("");
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
   const [flag, setFlag] = useState(false);
   const { singleBlog } = useSelector((store) => store.blogs);
   const postComment = () => {
-    // console.log(comment);
+    setComments([comment, ...comments]);
   };
   return (
     <>
@@ -40,7 +39,7 @@ export const SingleBlog = () => {
         <div>
           <h2>Comments</h2>
         </div>
-        <div>
+        <div className={styles.postComment}>
           <div>
             <RiAccountCircleLine
               fontSize="30px"
@@ -52,13 +51,50 @@ export const SingleBlog = () => {
               type="text"
               placeholder="Write a comment..."
               onClick={() => setFlag(true)}
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
             />
           </div>
         </div>
-        {/* <div className={styles.buttonBox}>
-          <Button variant="outline-danger" onClick={()=>setFlag(false)}>Cancel</Button>
-          <Button variant="outline-primary" onClick={postComment}>Post Comment</Button>
-        </div> */}
+        {flag ? (
+          <div className={styles.buttonBox}>
+            <Button
+              variant="outline-danger"
+              size="sm"
+              onClick={() => setFlag(false)}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="outline-primary"
+              onClick={postComment}
+              size="sm"
+              disabled={comment ? false : true}
+            >
+              Publish
+            </Button>
+          </div>
+        ) : (
+          ""
+        )}
+        <div>
+          {comments && comments.map((el, index) => {
+            return (
+              <div className={styles.singleComment}>
+                <div>
+                  <RiAccountCircleLine
+                    fontSize="30px"
+                    style={{ marginRight: "20px" }}
+                  />
+                </div>
+                <div>
+                  <h4>{el}</h4>
+                  <p>{el}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 .thanos {
-  height: auto;
   width: 60%;
   margin: auto;
   /* border: 1px solid black; */
@@ -44,9 +43,11 @@
 
 .commentBox{
   width: 48%;
-  height: 200px;
+  min-height: 200px;
+  height: auto;
   border: 1px solid rgb(198,198,197);
   margin: auto;
+  padding-top: 10px;
 }
 .commentBox>div:first-child{
   border-bottom: 1px solid rgb(198,198,197);
@@ -59,9 +60,9 @@
   font-size: 25px;
   font-weight: 400;
 }
-.commentBox>div:nth-child(2){
+.postComment{
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   width: 90%;
   margin: auto;
 }
@@ -78,3 +79,22 @@
   font-size: 17px;
 }
 
+.buttonBox{
+  /* border: 1px solid; */
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2%;
+}
+.singleComment{
+  display: flex;
+  /* border: 1px solid red; */
+  width: 90%;
+  height: 60px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+.singleComment h4{
+  font-size: 15px;
+}
