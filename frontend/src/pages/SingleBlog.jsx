@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/singleblog.module.css";
 import { BiTimeFive } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RiAccountCircleLine } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
+import { getComments, postcomment } from "../Redux/Blogs/actions";
 
 export const SingleBlog = () => {
-  const [comment, setComment] = useState("");
-  const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState({});
+  const [value, setValue] = useState("");
   const [flag, setFlag] = useState(false);
-  const { singleBlog } = useSelector((store) => store.blogs);
-  const postComment = () => {
-    setComments([comment, ...comments]);
+  const { singleBlog, comments } = useSelector((store) => store.blogs);
+  console.log(singleBlog.image)
+  console.log(comments);
+  const dispatch = useDispatch();
+
+  const postComment = async () => {
+    let userId = localStorage.getItem("userId");
+    let userName = localStorage.getItem("userName");
+    let blogId = singleBlog._id;
+    let date = new Date();
+    date = date.toString().slice(4, 24);
+    setComment({ ...comment, text: value, userId, userName, postTime: date });
+    postcomment(comment, blogId);
   };
+
+  useEffect(() => {
+    getComments(dispatch, singleBlog._id);
+  }, []);
+
   return (
     <>
       <div className={styles.thanos}>
@@ -51,8 +67,8 @@ export const SingleBlog = () => {
               type="text"
               placeholder="Write a comment..."
               onClick={() => setFlag(true)}
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
             />
           </div>
         </div>
@@ -69,7 +85,7 @@ export const SingleBlog = () => {
               variant="outline-primary"
               onClick={postComment}
               size="sm"
-              disabled={comment ? false : true}
+              disabled={value ? false : true}
             >
               Publish
             </Button>
@@ -78,22 +94,32 @@ export const SingleBlog = () => {
           ""
         )}
         <div>
-          {comments && comments.map((el, index) => {
-            return (
-              <div className={styles.singleComment}>
-                <div>
-                  <RiAccountCircleLine
-                    fontSize="30px"
-                    style={{ marginRight: "20px" }}
-                  />
+          {comments &&
+            comments.map((el, index) => {
+              return (
+                <div key={index} className={styles.singleComment}>
+                  <div>
+                    <RiAccountCircleLine
+                      fontSize="30px"
+                      style={{ marginRight: "20px" }}
+                    />
+                  </div>
+                  <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <h4>{el.userName}</h4>
+                      <p>{el.postTime}</p>
+                    </div>
+                    <p>{el.text}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4>{el}</h4>
-                  <p>{el}</p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </>

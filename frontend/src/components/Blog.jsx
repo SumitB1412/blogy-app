@@ -8,7 +8,7 @@ export const Blog = (props) => {
   const [readTime, setReadTime] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const tag = props.toLowerCase();
+  const tag = props.tags.toLowerCase();
   const randomTime = () => {
     let time = Math.floor(Math.random() * (10 - 5) + 5);
     setReadTime(time);
@@ -27,11 +27,8 @@ export const Blog = (props) => {
         <img src={`http://localhost:8000/static/${props.image}`} alt="" />
       </div>
       <div className={styles.child2}>
-        <h3>
-          <div
-            className={styles.line}
-            onClick={() => navigate(`/${tag}`)}
-          ></div>
+        <h3 onClick={() => navigate(`/${tag}`)}>
+          <div className={styles.line}></div>
           {props.tags}
         </h3>
         <h2 onClick={handleClick}>{props.title}</h2>
