@@ -4,7 +4,7 @@ export const REGISTER = "REGISTER";
 
 export const login = (data, dispatch, navigate) => {
   axios
-    .post("http://localhost:8000/auth/login", data)
+    .post("https://enigmatic-coast-46089.herokuapp.com/auth/login", data)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userId", res.data.id);
@@ -18,7 +18,7 @@ export const login = (data, dispatch, navigate) => {
 
 export const register = (data, dispatch, navigate) => {
   axios
-    .post("http://localhost:8000/auth/signup", data)
+    .post("https://enigmatic-coast-46089.herokuapp.com/auth/signup", data)
     .then((res) => navigate("/login"))
     .catch((err) => alert("Error signing In! Try again later"));
 };

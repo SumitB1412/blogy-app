@@ -25,7 +25,7 @@ export const SingleBlog = () => {
     console.log(comment);
     axios
       .post(
-        `http://localhost:8000/blogs/new-comment/${blogId}`,
+        `https://enigmatic-coast-46089.herokuapp.com/blogs/new-comment/${blogId}`,
         {
           text: value,
           userName,

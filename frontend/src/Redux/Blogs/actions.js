@@ -8,7 +8,7 @@ export const SINGLEBLOG = "SINGLEBLOG";
 // posting the blog
 export const postBlog = (token, userId, userName, form, navigate) => {
   axios
-    .post(`http://localhost:8000/blogs/${userName}/${userId}/new-blog`, form, {
+    .post(`https://enigmatic-coast-46089.herokuapp.com/blogs/${userName}/${userId}/new-blog`, form, {
       headers: {
         "Content-Type": "multipart/form-data",
         authorization: `Bearer ${token}`,
@@ -22,7 +22,7 @@ export const postBlog = (token, userId, userName, form, navigate) => {
 // getting all the blogs
 export const getAllBlogs = (dispatch) => {
   axios
-    .get("http://localhost:8000/blogs/all")
+    .get("https://enigmatic-coast-46089.herokuapp.com/blogs/all")
     .then(({ data }) => {
       // console.log(data)
       dispatch({
@@ -36,7 +36,7 @@ export const getAllBlogs = (dispatch) => {
 // getting specific blogs tagwise
 export const getSpecificBlogs = (tag, dispatch) => {
   axios
-    .get(`http://localhost:8000/blogs/${tag}`)
+    .get(`https://enigmatic-coast-46089.herokuapp.com/blogs/${tag}`)
     .then(({ data }) => {
       dispatch({
         type: GETSPECIFIC,

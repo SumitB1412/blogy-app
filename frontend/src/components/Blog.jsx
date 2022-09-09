@@ -24,7 +24,7 @@ export const Blog = (props) => {
   return (
     <div className={styles.container}>
       <div onClick={handleClick} className={styles.child1}>
-        <img src={`http://localhost:8000/static/${props.image}`} alt="" />
+        <img src={`https://enigmatic-coast-46089.herokuapp.com/static/${props.image}`} alt="" />
       </div>
       <div className={styles.child2}>
         <h3 onClick={() => navigate(`/${tag}`)}>
