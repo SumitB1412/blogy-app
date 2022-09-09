@@ -4,7 +4,6 @@ const connection = require("./db");
 const authRouter = require("./routes/authRouter");
 const blogRouter = require("./routes/blogRouter");
 const commentRouter = require("./routes/commentRouter");
-const likesRouter = require("./routes/likesRouter");
 
 const app = express();
 
@@ -16,7 +15,6 @@ app.use("/static", express.static("./uploads"));
 app.use("/auth", authRouter);
 app.use("/blogs", blogRouter);
 app.use("/blogs", commentRouter);
-app.use("/likes", likesRouter);
 
 app.get("/", (req, res) => {
   res.send("Homepage");

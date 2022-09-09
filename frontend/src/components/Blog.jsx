@@ -35,7 +35,9 @@ export const Blog = (props) => {
         <p>
           {props.date} <strong>•</strong> {readTime} min read
         </p>
-        <p>By {props.authorName}</p>
+        <div>
+          <p>By {props.authorName}</p>
+        </div>
       </div>
     </div>
   );
