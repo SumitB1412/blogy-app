@@ -3,7 +3,7 @@ export const GETALL = "GETALL";
 export const GETSPECIFIC = "GETSPECIFIC";
 export const POSTBLOG = "POSTBLOG";
 export const SINGLEBLOG = "SINGLEBLOG";
-export const GETCOMMENTS = "GETCOMMENTS";
+
 
 // posting the blog
 export const postBlog = (token, userId, userName, form, navigate) => {
@@ -51,18 +51,3 @@ export const singleBlog = (el, dispatch) => {
   dispatch({ type: SINGLEBLOG, payload: el });
 };
 
-// posting comment
-export const postcomment = (comment, blogId) => {
-  console.log(comment);
-  axios
-    .post(`http://localhost:8000/blogs/new-comment/${blogId}`, comment)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
-};
-
-export const getComments = (dispatch, blogId) => {
-  axios
-    .get(`http://localhost:8000/blogs/comments/${blogId}`)
-    .then((res) => dispatch({ type: GETCOMMENTS, payload: res.data }))
-    .catch((err) => console.log(err));
-};

@@ -1,6 +1,5 @@
 /* styling the navbar */
 .navbar {
-  /* border: 1px solid black; */
   height: 70px;
   width: 100%;
   display: flex;
@@ -16,7 +15,6 @@
   height: 100%;
   display: flex;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 .navbar img {
@@ -41,7 +39,6 @@
   cursor: pointer;
   color: rgb(121, 124, 124);
   font-weight: 500;
-  /* border: 1px solid blue; */
 }
 .navbar > div:nth-child(2) > p::after {
   content: "";

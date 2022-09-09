@@ -8,8 +8,6 @@
 }
 
 .child1{
-    /* border: 2px solid red; */
-    /* margin-top: 2%; */
     display: flex;
     color: #fff;
     align-items: center;
@@ -21,7 +19,6 @@
 .child1>div{
   display: flex;
   align-items: center;
-  /* border: 1px solid white; */
 }
 .child1>div:nth-child(1){
     width: 13%;
@@ -32,7 +29,6 @@
 }
 
 .child1>div:nth-child(3){
-  /* border: 1px solid white; */
   width: 12%;
   justify-content: space-around;
   font-size: 26px;

@@ -34,7 +34,7 @@ export const Register = () => {
   };
 
   const handleSubmit = () => {
-    register(userData, dispatch);
+    register(userData, dispatch,navigate);
   };
 
   //   useEffect(() => {

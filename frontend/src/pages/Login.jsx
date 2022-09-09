@@ -40,7 +40,7 @@ export const Login = () => {
     });
   };
   const handleSubmit = () => {
-    login(userData, dispatch);
+    login(userData, dispatch,navigate);
   };
 
   return (

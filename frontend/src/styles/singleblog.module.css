@@ -1,16 +1,12 @@
 .thanos {
   width: 60%;
   margin: auto;
-  /* border: 1px solid black; */
   color: #000000;
   font-family: "Roboto Slab", serif;
 }
-/* .thanos h2{
-    
-} */
+
 .wanda {
   display: flex;
-  /* border: 1px solid; */
   width: 40%;
   justify-content: space-between;
 }
@@ -48,6 +44,7 @@
   border: 1px solid rgb(198,198,197);
   margin: auto;
   padding-top: 10px;
+  margin-top: 80px;
 }
 .commentBox>div:first-child{
   border-bottom: 1px solid rgb(198,198,197);
@@ -62,7 +59,6 @@
 }
 .postComment{
   display: flex;
-  /* border: 1px solid red; */
   width: 90%;
   margin: auto;
 }
@@ -80,7 +76,6 @@
 }
 
 .buttonBox{
-  /* border: 1px solid; */
   width: 90%;
   margin: auto;
   display: flex;
@@ -90,11 +85,12 @@
 }
 .singleComment{
   display: flex;
-  /* border: 1px solid red; */
   width: 90%;
-  height: 60px;
   margin: auto;
   margin-bottom: 10px;
+  border-bottom: 1px solid rgb(198,198,197);
+  border-top: 1px solid rgb(198,198,197);
+  padding: 5px 0px;
 }
 .singleComment h4{
   font-size: 15px;

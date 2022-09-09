@@ -10,7 +10,6 @@
 }
 .loginHeader > div {
   width: 20%;
-  /* border: 1px solid red; */
   height: 100%;
 }
 .loginHeader > div:first-child {
@@ -50,7 +49,6 @@
 }
 .logInGoogle {
   height: 180px;
-  /* border: 1px solid black; */
   margin-top: 10%;
 }
 .logInGoogle > div {
@@ -102,7 +100,6 @@
 .inputBox {
   height: 25%;
   width: 80%;
-  /* border: 1px solid black; */
   margin: auto;
   margin-top: 8%;
 }

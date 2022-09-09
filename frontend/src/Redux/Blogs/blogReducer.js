@@ -1,4 +1,4 @@
-import { GETALL, GETSPECIFIC, SINGLEBLOG, GETCOMMENTS } from "./actions";
+import { GETALL, GETSPECIFIC, SINGLEBLOG } from "./actions";
 
 const initState = {
   blogs: [],
@@ -25,12 +25,6 @@ export const blogReducer = (state = initState, { type, payload }) => {
       return {
         ...initState,
         singleBlog: payload,
-      };
-    }
-    case GETCOMMENTS: {
-      return {
-        ...initState,
-        comments: payload,
       };
     }
     default: {
