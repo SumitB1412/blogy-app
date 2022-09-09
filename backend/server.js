@@ -4,6 +4,7 @@ const connection = require("./db");
 const authRouter = require("./routes/authRouter");
 const blogRouter = require("./routes/blogRouter");
 const commentRouter = require("./routes/commentRouter");
+require("dotenv").config();
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
   res.send("Homepage");
 });
 
+const PORT = process.env.PORT;
 app.listen(8000, async () => {
   try {
     await connection;
