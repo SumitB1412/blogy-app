@@ -57,7 +57,8 @@ export const SingleBlog = () => {
         <p>Author : {singleBlog.authorName}</p>
         <div className={styles.singleImgDiv}>
           <img
-            src={`http://localhost:8000/static/${singleBlog.image}`}
+            // src={`http://localhost:8000/static/${singleBlog.image}`}
+            src={`${singleBlog.img}`}
             alt=""
           />
         </div>

@@ -48,10 +48,10 @@
   font-size: 30px;
   color: #000000;
   cursor: pointer;
+  overflow: hidden;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .child2 > h2:hover {
@@ -76,6 +76,6 @@ p > strong {
   transition: 1s;
   transform: scale(1.1);
 }
-.child2 p + div> p {
+.child2 p + div > p {
   font-style: italic;
 }

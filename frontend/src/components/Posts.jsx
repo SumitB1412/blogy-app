@@ -6,6 +6,7 @@ import { Blog } from "./Blog";
 import { sampleBlogs } from "../db";
 
 export const Posts = ({ type }) => {
+  // console.log(sampleBlogs)
   const { blogs } = useSelector((store) => store.blogs);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,11 +19,11 @@ export const Posts = ({ type }) => {
         <div></div>
       </div>
       <div className={styles.boxes}>
-        {blogs
-          ? blogs.map((el, index) => {
+        {sampleBlogs
+          ? sampleBlogs.map((el, index) => {
               return <Blog key={index} {...el} />;
             })
-          : sampleBlogs.map((el, index) => {
+          : blogs.map((el, index) => {
               return <Blog key={index} {...el} />;
             })}
       </div>

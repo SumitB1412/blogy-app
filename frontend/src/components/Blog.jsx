@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export const Blog = (props) => {
+  // console.log(props)
   const [readTime, setReadTime] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +25,8 @@ export const Blog = (props) => {
   return (
     <div className={styles.container}>
       <div onClick={handleClick} className={styles.child1}>
-        <img src={`https://enigmatic-coast-46089.herokuapp.com/static/${props.image}`} alt="" />
+        {/* <img src={`https://enigmatic-coast-46089.herokuapp.com/static/${props.image}`} alt="" /> */}
+        <img src={`${props.img}`} alt="" />
       </div>
       <div className={styles.child2}>
         <h3 onClick={() => navigate(`/${tag}`)}>
