@@ -18,7 +18,7 @@ export const NewBlog = () => {
   const userId = localStorage.getItem("userId");
   const userName = localStorage.getItem("userName");
 
-  if (!token) {
+  if (!userId) {
     return (
       <Alert className="text-center" variant="danger">
         To write a new blog first {"   "}

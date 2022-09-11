@@ -7,16 +7,14 @@ import { AiFillApple } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import { useState } from "react";
-// import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../Redux/Auth/actions";
+import { googleSignIn, login } from "../Redux/Auth/actions";
 
 export const Login = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({});
   const dispatch = useDispatch();
-  //   const { user, googleSignIn, signIn } = useContext(AuthContext);
 
   //   useEffect(() => {
   //     if (user !== null) {
@@ -26,11 +24,11 @@ export const Login = () => {
   //   }, [user]);
 
   const handleGoogleSignIn = async () => {
-    // try {
-    //   await googleSignIn();
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      await googleSignIn();
+    } catch (err) {
+      console.log(err);
+    }
   };
   const handleChange = (e) => {
     const { name, value } = e.target;

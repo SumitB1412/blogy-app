@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
   GoogleAuthProvider,
-  signInWithRedirect,
+  signInWithPopup,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
@@ -27,7 +27,10 @@ export const login = (data, dispatch, navigate) => {
 export const register = (data, dispatch, navigate) => {
   axios
     .post("https://enigmatic-coast-46089.herokuapp.com/auth/signup", data)
-    .then((res) => navigate("/login"))
+    .then((res) => {
+      alert("Signup success!");
+      navigate("/login");
+    })
     .catch((err) => alert("Error signing In! Try again later"));
 };
 
@@ -35,5 +38,8 @@ export const register = (data, dispatch, navigate) => {
 
 export const googleSignIn = () => {
   const provider = new GoogleAuthProvider();
-  signInWithRedirect(auth, provider);
+  signInWithPopup(auth, provider);
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    localStorage.setItem("userId", currentUser.uid);
+  });
 };
