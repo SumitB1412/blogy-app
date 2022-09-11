@@ -61,28 +61,6 @@ export const Login = () => {
             />{" "}
             Continue with <strong>Google</strong>
           </div>
-          <div>
-            <BsFacebook
-              style={{
-                color: "rgb(59,89,152)",
-                width: "21px",
-                height: "21px",
-                marginRight: "2%",
-              }}
-            />{" "}
-            Continue with <strong> Facebook</strong>
-          </div>
-          <div>
-            <AiFillApple
-              style={{
-                color: "black",
-                width: "21px",
-                height: "21px",
-                marginRight: "2%",
-              }}
-            />{" "}
-            Continue with <strong> Apple</strong>
-          </div>
         </div>
         <p>or</p>
         <div className={styles.info}>
