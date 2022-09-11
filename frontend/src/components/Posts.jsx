@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllBlogs } from "../Redux/Blogs/actions";
 import styles from "../styles/posts.module.css";
 import { Blog } from "./Blog";
+import { sampleBlogs } from "../db";
 
 export const Posts = ({ type }) => {
   const { blogs } = useSelector((store) => store.blogs);
@@ -17,14 +18,13 @@ export const Posts = ({ type }) => {
         <div></div>
       </div>
       <div className={styles.boxes}>
-        {blogs && blogs.map((el,index)=>{
-          return <Blog key={index} {...el} />
-        })}
-        {/* <Blog />
-        <Blog />
-        <Blog />
-        <Blog />
-        <Blog /> */}
+        {blogs
+          ? blogs.map((el, index) => {
+              return <Blog key={index} {...el} />;
+            })
+          : sampleBlogs.map((el, index) => {
+              return <Blog key={index} {...el} />;
+            })}
       </div>
     </div>
   );
